@@ -1,5 +1,6 @@
 import React from "react";
 
+import Card from "../components/Card";
 import Carousel from "../components/Carousel";
 import HotLinks from "../components/HotLinks";
 
@@ -59,13 +60,79 @@ export default function index() {
     },
   ];
 
+  const newsByCategory = [
+    {
+      category: "General",
+      news: [
+        {
+          title: "Title 1",
+          description: "Description 1",
+          image: "https://picsum.photos/800/400?random=1",
+        },
+        {
+          title: "Title 2",
+          description: "Description 2",
+          image: "https://picsum.photos/800/400?random=2",
+        },
+        {
+          title: "Title 3",
+          description: "Description 3",
+          image: "https://picsum.photos/800/400?random=3",
+        },
+      ],
+    },
+    {
+      category: "Deportes",
+      news: [
+        {
+          title: "Title 1",
+          description: "Description 1",
+          image: "https://picsum.photos/800/400?random=4",
+        },
+        {
+          title: "Title 2",
+          description: "Description 2",
+          image: "https://picsum.photos/800/400?random=5",
+        },
+        {
+          title: "Title 3",
+          description: "Description 3",
+          image: "https://picsum.photos/800/400?random=6",
+        },
+      ],
+    },
+  ];
+
   return (
     <div className="container mx-auto flex flex-col gap-3">
       <h1>Index</h1>
 
       <Carousel images={images} />
 
-      <HotLinks links={links} />
+      <div className="flex flex-col gap-1.5">
+        <h2 className="font-bold text-center uppercase">
+          Accesos directos de interes
+        </h2>
+
+        <HotLinks links={links} />
+      </div>
+
+      <div className="grid grid-cols-2 gap-3">
+        {newsByCategory.map((news) => (
+          <div className="flex flex-col gap-3">
+            <h2 className="font-bold text-center uppercase">{news.category}</h2>
+            <div className="grid grid-cols-1 gap-3">
+              {news.news.map((news) => (
+                <Card
+                  image={news.image}
+                  title={news.title}
+                  description={news.description}
+                />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
