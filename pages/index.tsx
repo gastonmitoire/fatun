@@ -1,6 +1,7 @@
 import React from "react";
 
 import Carousel from "../components/Carousel";
+import HotLinks from "../components/HotLinks";
 
 export default function index() {
   const images = [
@@ -21,11 +22,50 @@ export default function index() {
     },
   ];
 
+  const links = [
+    {
+      caption: "Caption 1",
+      url: "https://google.com",
+      image: "https://picsum.photos/800/400?random=4",
+    },
+    {
+      caption: "Caption 2",
+      url: "https://google.com",
+    },
+    {
+      caption: "Caption 3",
+      url: "https://google.com",
+    },
+    {
+      caption: "Caption 4",
+      url: "https://google.com",
+    },
+    {
+      caption: "Caption 5",
+      url: "https://google.com",
+    },
+    {
+      caption: "Caption 6",
+
+      url: "https://google.com",
+    },
+    {
+      caption: "Caption 7",
+      url: "https://google.com",
+    },
+    {
+      caption: "Caption 8",
+      url: "https://google.com",
+    },
+  ];
+
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto flex flex-col gap-3">
       <h1>Index</h1>
 
       <Carousel images={images} />
+
+      <HotLinks links={links} />
     </div>
   );
 }

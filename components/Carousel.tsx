@@ -1,5 +1,3 @@
-// Carouse component
-
 import React, { useState } from "react";
 
 interface CarouselImage {
