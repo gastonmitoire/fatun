@@ -8,8 +8,6 @@ import HotLinks from "@/components/HotLinks";
 import SocialFeed from "@/components/SocialFeed";
 
 export default function index() {
-  const [posts, setPosts] = React.useState([]);
-
   const links = [
     {
       caption: "Caption 1",
@@ -122,18 +120,6 @@ export default function index() {
       image: "https://picsum.photos/800/400?random=6",
     },
   ];
-
-  const getPostsData = async () => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`);
-
-    const data = await response.json();
-
-    setPosts(data);
-  };
-
-  React.useEffect(() => {
-    getPostsData();
-  }, []);
 
   return (
     <div className="container mx-auto flex flex-col gap-3">
