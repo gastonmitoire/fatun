@@ -8,59 +8,6 @@ import HotLinks from "@/components/HotLinks";
 import SocialFeed from "@/components/SocialFeed";
 
 export default function index() {
-  const headerLinks = [
-    {
-      href: "https://facebook.com",
-      label: "Inicio",
-    },
-    {
-      href: "https://twitter.com",
-      label: "Instiucional",
-      sublinks: [
-        {
-          value: "https://twitter.com",
-          label: "Twitter",
-        },
-        {
-          value: "https://twitter.com",
-          label: "Twitter",
-        },
-      ],
-    },
-    {
-      href: "https://google.com",
-      label: "Noticias",
-    },
-    {
-      href: "https://twitter.com",
-      label: "Menu 4",
-      sublinks: [
-        {
-          value: "https://twitter.com",
-          label: "Twitter",
-        },
-        {
-          value: "https://twitter.com",
-          label: "Twitter",
-        },
-      ],
-    },
-    {
-      href: "https://twitter.com",
-      label: "Menu 5",
-      sublinks: [
-        {
-          value: "https://twitter.com",
-          label: "Twitter",
-        },
-        {
-          value: "https://twitter.com",
-          label: "Twitter",
-        },
-      ],
-    },
-  ];
-
   const images = [
     {
       url: "https://picsum.photos/800/400?random=1",
@@ -194,17 +141,6 @@ export default function index() {
 
   return (
     <div className="container mx-auto flex flex-col gap-3">
-      <Header
-        logo="https://www.atunpa.org.ar/images/WhatsApp_Image_2022-09-01_at_124852-removebg-preview_1.png"
-        links={headerLinks}
-        leftLinks={[
-          {
-            href: "https://facebook.com",
-            label: "Facebook",
-          },
-        ]}
-      />
-
       <Carousel images={images} />
 
       <div className="flex flex-col gap-1.5">

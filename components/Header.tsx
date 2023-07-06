@@ -35,35 +35,37 @@ const Header: React.FC<HeaderProps> = ({
     <header className="bg-white shadow">
       {leftLinks || rightLinks ? (
         <nav className="bg-blue-500 text-white px-10">
-          <div
-            className={`flex flex-row justify-between items-center ${
-              leftLinks ? "visible" : "hidden"
-            }`}
-          >
-            {leftLinks &&
-              leftLinks.map((link) => (
-                <Link
-                  href={link.href}
-                  key={link.label}
-                  className="flex items-center gap-1"
-                >
-                  <small>{">"}</small>
-                  {link.label}
-                </Link>
-              ))}
-          </div>
+          <div className="container mx-auto">
+            <div
+              className={`flex flex-row justify-between items-center ${
+                leftLinks ? "visible" : "hidden"
+              }`}
+            >
+              {leftLinks &&
+                leftLinks.map((link) => (
+                  <Link
+                    href={link.href}
+                    key={link.label}
+                    className="flex items-center gap-1"
+                  >
+                    <small>{">"}</small>
+                    {link.label}
+                  </Link>
+                ))}
+            </div>
 
-          <div
-            className={`flex flex-row justify-between items-center ${
-              leftLinks ? "visible" : "hidden"
-            }`}
-          >
-            {rightLinks &&
-              rightLinks.map((link) => (
-                <Link href={link.href} key={link.label}>
-                  {link.label}
-                </Link>
-              ))}
+            <div
+              className={`flex flex-row justify-between items-center ${
+                leftLinks ? "visible" : "hidden"
+              }`}
+            >
+              {rightLinks &&
+                rightLinks.map((link) => (
+                  <Link href={link.href} key={link.label}>
+                    {link.label}
+                  </Link>
+                ))}
+            </div>
           </div>
         </nav>
       ) : null}
