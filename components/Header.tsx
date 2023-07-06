@@ -27,13 +27,13 @@ interface HeaderProps {
 
 const Header = ({ logo, links }: HeaderProps) => {
   return (
-    <header className="container mx-auto bg-white shadow px-10 py-1.5">
+    <nav className="container mx-auto bg-white shadow px-10 py-1.5">
       <div className="flex flex-row justify-between items-center">
         <Link href="/">
           <img src={logo} alt="Logo" className="h-20" />
         </Link>
 
-        <div>
+        <div className="flex items-center gap-3 text-sm">
           {links.map((link) => {
             if (link.sublinks) {
               return (
@@ -47,16 +47,24 @@ const Header = ({ logo, links }: HeaderProps) => {
             }
 
             return (
-              <Link href={link.href} key={link.label}>
-                {link.label}
-              </Link>
+              <button
+                type="button"
+                className="inline-flex justify-center w-full px-4 py-2 bg-white hover:bg-gray-50 border border-transparent focus:border-gray-300"
+                id="options-menu"
+                aria-haspopup="true"
+                aria-expanded="true"
+              >
+                <Link href={link.href} key={link.label}>
+                  {link.label}
+                </Link>
+              </button>
             );
           })}
         </div>
 
         <div>olas</div>
       </div>
-    </header>
+    </nav>
   );
 };
 
