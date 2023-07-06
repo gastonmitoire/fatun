@@ -11,7 +11,7 @@ interface DropdownProps {
   onChange: (value: string) => void;
 }
 
-const Dropdown = ({ label, options, onChange }: DropdownProps) => {
+const Dropdown: React.FC<DropdownProps> = ({ label, options, onChange }) => {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(options[0].value);
 
