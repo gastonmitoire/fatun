@@ -1,9 +1,10 @@
 import React from "react";
 
-import Card from "../components/Card";
-import Carousel from "../components/Carousel";
+import Banner from "@/components/Banner";
+import Card from "@/components/Card";
+import Carousel from "@/components/Carousel";
 import Header from "@/components/Header";
-import HotLinks from "../components/HotLinks";
+import HotLinks from "@/components/HotLinks";
 
 export default function index() {
   const headerLinks = [
@@ -196,6 +197,15 @@ export default function index() {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="grid grid-cols-2 gap-3 w-full">
+        <Banner
+          iframesrc="https://www.youtube.com/embed/5qap5aO4i9A"
+          className="col-span-2"
+        />
+        <Banner iframesrc="https://www.youtube.com/embed/5qap5aO4i9A" />
+        <Banner iframesrc="https://www.youtube.com/embed/5qap5aO4i9A" />
       </div>
     </div>
   );
