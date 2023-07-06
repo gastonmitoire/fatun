@@ -1,27 +1,14 @@
 import React from "react";
 
-import Card from "../components/Card";
-import Carousel from "../components/Carousel";
-import HotLinks from "../components/HotLinks";
+import Banner from "@/components/Banner";
+import Card from "@/components/Card";
+import Carousel from "@/components/Carousel";
+import Header from "@/components/Header";
+import HotLinks from "@/components/HotLinks";
+import SocialFeed from "@/components/SocialFeed";
 
 export default function index() {
-  const images = [
-    {
-      url: "https://picsum.photos/800/400?random=1",
-      caption: "Caption 1",
-      link: "https://google.com",
-    },
-    {
-      url: "https://picsum.photos/800/400?random=2",
-      caption: "Caption 2",
-      link: "https://google.com",
-    },
-    {
-      url: "https://picsum.photos/800/400?random=3",
-      caption: "Caption 3",
-      link: "https://google.com",
-    },
-  ];
+  const [posts, setPosts] = React.useState([]);
 
   const links = [
     {
@@ -103,11 +90,59 @@ export default function index() {
     },
   ];
 
+  const socialFeeds = [
+    {
+      title: "Title 1",
+      description: "Description 1",
+      image: "https://picsum.photos/800/400?random=1",
+    },
+    {
+      title: "Title 2",
+      description: "Description 2",
+      image: "https://picsum.photos/800/400?random=2",
+    },
+    {
+      title: "Title 3",
+      description: "Description 3",
+      image: "https://picsum.photos/800/400?random=3",
+    },
+    {
+      title: "Title 4",
+      description: "Description 4",
+      image: "https://picsum.photos/800/400?random=4",
+    },
+    {
+      title: "Title 5",
+      description: "Description 5",
+      image: "https://picsum.photos/800/400?random=5",
+    },
+    {
+      title: "Title 6",
+      description: "Description 6",
+      image: "https://picsum.photos/800/400?random=6",
+    },
+  ];
+
+  const getPostsData = async () => {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`);
+
+    const data = await response.json();
+
+    setPosts(data);
+  };
+
+  React.useEffect(() => {
+    getPostsData();
+  }, []);
+
   return (
     <div className="container mx-auto flex flex-col gap-3">
-      <h1>Index</h1>
-
-      <Carousel images={images} />
+      {/* <Carousel
+        images={posts.map((post) => ({
+          caption: post.caption,
+          url: post.url,
+        }))}
+      /> */}
 
       <div className="flex flex-col gap-1.5">
         <h2 className="font-bold text-center uppercase">
@@ -118,12 +153,13 @@ export default function index() {
       </div>
 
       <div className="grid grid-cols-2 gap-3">
-        {newsByCategory.map((news) => (
-          <div className="flex flex-col gap-3">
+        {newsByCategory.map((news, index) => (
+          <div className="flex flex-col gap-3" key={index}>
             <h2 className="font-bold text-center uppercase">{news.category}</h2>
             <div className="grid grid-cols-1 gap-3">
-              {news.news.map((news) => (
+              {news.news.map((news, index) => (
                 <Card
+                  key={index}
                   image={news.image}
                   title={news.title}
                   description={news.description}
@@ -131,6 +167,30 @@ export default function index() {
               ))}
             </div>
           </div>
+        ))}
+      </div>
+
+      <div className="grid grid-cols-2 gap-3 w-full">
+        <Banner
+          iframesrc="https://www.youtube.com/embed/5qap5aO4i9A"
+          className="col-span-2"
+        />
+        <Banner iframesrc="https://www.youtube.com/embed/5qap5aO4i9A" />
+        <Banner iframesrc="https://www.youtube.com/embed/5qap5aO4i9A" />
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-3">
+        <h2 className="font-bold text-center uppercase col-span-6">
+          Redes sociales del sindicato
+        </h2>
+
+        {socialFeeds.map((socialFeed, index) => (
+          <SocialFeed
+            key={index}
+            title={socialFeed.title}
+            description={socialFeed.description}
+            image={socialFeed.image}
+          />
         ))}
       </div>
     </div>
