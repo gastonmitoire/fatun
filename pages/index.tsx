@@ -5,6 +5,7 @@ import Card from "@/components/Card";
 import Carousel from "@/components/Carousel";
 import Header from "@/components/Header";
 import HotLinks from "@/components/HotLinks";
+import SocialFeed from "@/components/SocialFeed";
 
 export default function index() {
   const headerLinks = [
@@ -158,6 +159,39 @@ export default function index() {
     },
   ];
 
+  const socialFeeds = [
+    {
+      title: "Title 1",
+      description: "Description 1",
+      image: "https://picsum.photos/800/400?random=1",
+    },
+    {
+      title: "Title 2",
+      description: "Description 2",
+      image: "https://picsum.photos/800/400?random=2",
+    },
+    {
+      title: "Title 3",
+      description: "Description 3",
+      image: "https://picsum.photos/800/400?random=3",
+    },
+    {
+      title: "Title 4",
+      description: "Description 4",
+      image: "https://picsum.photos/800/400?random=4",
+    },
+    {
+      title: "Title 5",
+      description: "Description 5",
+      image: "https://picsum.photos/800/400?random=5",
+    },
+    {
+      title: "Title 6",
+      description: "Description 6",
+      image: "https://picsum.photos/800/400?random=6",
+    },
+  ];
+
   return (
     <div className="container mx-auto flex flex-col gap-3">
       <Header
@@ -206,6 +240,21 @@ export default function index() {
         />
         <Banner iframesrc="https://www.youtube.com/embed/5qap5aO4i9A" />
         <Banner iframesrc="https://www.youtube.com/embed/5qap5aO4i9A" />
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-3">
+        <h2 className="font-bold text-center uppercase col-span-6">
+          Redes sociales del sindicato
+        </h2>
+
+        {socialFeeds.map((socialFeed, index) => (
+          <SocialFeed
+            key={index}
+            title={socialFeed.title}
+            description={socialFeed.description}
+            image={socialFeed.image}
+          />
+        ))}
       </div>
     </div>
   );
