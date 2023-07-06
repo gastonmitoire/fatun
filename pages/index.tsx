@@ -2,6 +2,7 @@ import React from "react";
 
 import Card from "../components/Card";
 import Carousel from "../components/Carousel";
+import Header from "@/components/Header";
 import HotLinks from "../components/HotLinks";
 
 export default function index() {
@@ -105,7 +106,19 @@ export default function index() {
 
   return (
     <div className="container mx-auto flex flex-col gap-3">
-      <h1>Index</h1>
+      <Header
+        logo="https://picsum.photos/800/400?random=1"
+        links={[
+          {
+            href: "https://google.com",
+            label: "Google",
+          },
+          {
+            href: "https://facebook.com",
+            label: "Facebook",
+          },
+        ]}
+      />
 
       <Carousel images={images} />
 
