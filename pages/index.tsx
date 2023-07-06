@@ -107,7 +107,7 @@ export default function index() {
   return (
     <div className="container mx-auto flex flex-col gap-3">
       <Header
-        logo="https://picsum.photos/800/400?random=1"
+        logo="https://www.atunpa.org.ar/images/WhatsApp_Image_2022-09-01_at_124852-removebg-preview_1.png"
         links={[
           {
             href: "https://google.com",
@@ -116,6 +116,20 @@ export default function index() {
           {
             href: "https://facebook.com",
             label: "Facebook",
+          },
+          {
+            href: "https://twitter.com",
+            label: "Twitter",
+            sublinks: [
+              {
+                value: "https://twitter.com",
+                label: "Twitter",
+              },
+              {
+                value: "https://twitter.com",
+                label: "Twitter",
+              },
+            ],
           },
         ]}
       />
@@ -131,12 +145,13 @@ export default function index() {
       </div>
 
       <div className="grid grid-cols-2 gap-3">
-        {newsByCategory.map((news) => (
-          <div className="flex flex-col gap-3">
+        {newsByCategory.map((news, index) => (
+          <div className="flex flex-col gap-3" key={index}>
             <h2 className="font-bold text-center uppercase">{news.category}</h2>
             <div className="grid grid-cols-1 gap-3">
-              {news.news.map((news) => (
+              {news.news.map((news, index) => (
                 <Card
+                  key={index}
                   image={news.image}
                   title={news.title}
                   description={news.description}
